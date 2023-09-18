@@ -1,17 +1,24 @@
+import {
+  StatList,
+  StatListItem,
+  StatSection,
+  StatTitle,
+  StatValue,
+} from "./Statistics.styled";
+
 const Statistics = ({ title, stats }) => {
   return (
-    <section className="statistics">
-      {title && <h2 className="title">{title}</h2>}
-
-      <ul className="stat-list">
-        {stats.map(({ id, label, procentage }) => (
-          <li className="item" key={id}>
-            <span className="label">{label}</span>
-            <span className="percentage">{procentage}%</span>
-          </li>
+    <StatSection>
+      {title && <StatTitle>{title}</StatTitle>}
+      <StatList>
+        {stats.map(({ id, label, percentage }) => (
+          <StatListItem key={id}>
+            <span>{label}</span>
+            <StatValue>{percentage}%</StatValue>
+          </StatListItem>
         ))}
-      </ul>
-    </section>
+      </StatList>
+    </StatSection>
   );
 };
 
